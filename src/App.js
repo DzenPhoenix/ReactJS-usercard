@@ -1,25 +1,27 @@
-import logo from './logo.svg';
+import UserPhoto from './components/UserPhoto/UserPhoto.jsx';
+import UserInfoList from './components/UserInfoList/UserInfoList.jsx';
 import './App.css';
+import React from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default class App extends React.Component {
+  constructor(props){
+    super(props);
+    this.userData = props.userData;
+    this.src = this.userData.results[0].picture.medium;
+    this.userInfoData = {
+      Name:this.userData.results[0].name.first,
+      Surname:this.userData.results[0].name.last,
+      Email:this.userData.results[0].email,
+      Gender:this.userData.results[0].gender,
+      Phone: this.userData.results[0].phone,
+    }
+  }
+  render() {
+    return (
+      <div className="container">
+        <UserPhoto src={this.src}></UserPhoto>
+        <UserInfoList userInfoData={this.userInfoData}></UserInfoList>
+      </div>
+    )
+  }
 }
-
-export default App;

@@ -1,0 +1,22 @@
+.container {
+  width: 20vw;
+  height: 20vw;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: lightgray;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.photo {
+  width: 12.5vw;
+  height: 12.5vw;
+  border: 1px solid green;
+  border-radius: 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}

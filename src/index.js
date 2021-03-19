@@ -4,14 +4,23 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+const url = 'https://randomuser.me/api/';
+    fetch(url)
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        ReactDOM.render(
+          <React.StrictMode>
+            <App userData = {data}/>
+          </React.StrictMode>,
+          document.getElementById('root')
+        );
+        
+        // If you want to start measuring performance in your app, pass a function
+        // to log results (for example: reportWebVitals(console.log))
+        // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+        reportWebVitals();
+      });
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+
